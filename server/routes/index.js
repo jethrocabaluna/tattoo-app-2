@@ -1,4 +1,7 @@
 const keystone = require('keystone');
+const graphqlHTTP = require('express-graphql');
+
+const schema = require('./schema');
 
 const importRoutes = keystone.importer(__dirname);
 
@@ -8,6 +11,11 @@ const routes = {
 }
 
 exports = module.exports = app => {
+    app.use('/graphql', graphqlHTTP({
+        schema,
+        graphiql: true
+    }));
+
     app.get('/', routes.views.index);
 
     app.get('/api/tattoos/list', keystone.middleware.api, routes.api.tattoos.list);
