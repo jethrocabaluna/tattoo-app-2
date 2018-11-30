@@ -16,7 +16,7 @@ exports = module.exports = app => {
         graphiql: true
     }));
 
-    app.get('/', routes.views.index);
-
     app.get('/api/tattoos/list', keystone.middleware.api, routes.api.tattoos.list);
+
+    app.get('*', routes.views.index);
 }

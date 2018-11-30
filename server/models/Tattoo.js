@@ -25,6 +25,7 @@ Tattoo.add({
         required: true
     },
     customerName: String,
+    category: String,
     state: {
         type: Types.Select,
         options: 'draft, published, archived',
