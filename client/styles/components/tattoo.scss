@@ -1,0 +1,25 @@
+.tattoo {
+    position: relative;
+    background-color: #333;
+    color: #f3f3f3;
+    padding: 20px 10px;
+    grid-column: span 4;
+    margin-bottom: 20px;
+
+    &__name {
+        letter-spacing: 3px;
+        font-weight: 100;
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+    }
+
+    &__description {
+        letter-spacing: 2px;
+        font-weight: 100;
+        margin-top: 20px;
+    }
+}

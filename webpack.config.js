@@ -4,15 +4,19 @@ const path = require('path');
 const parentDir = path.join(__dirname, '../');
 
 module.exports = {
+    mode: 'development',
     entry: [
-        path.join(parentDir, 'index.js')
+        './client/index.js'
     ],
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                options: {
+                    presets: ['react', 'env', 'es2015']
+                }
             },
             {
                 test: /\.scss$/,
@@ -25,8 +29,9 @@ module.exports = {
         ]
     },
     output: {
-        path: parentDir + '/dist',
-        filename: 'bundle.js'
+        path: path.join(__dirname, '/server/public/js/'),
+        filename: 'bundle.js',
+        publicPath: 'server/public/js'
     },
     devServer: {
         contentBase: parentDir,
