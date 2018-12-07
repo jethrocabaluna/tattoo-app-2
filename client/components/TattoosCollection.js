@@ -13,7 +13,7 @@ const LAUNCHES_QUERY = gql`
     }
 `;
 
-export default function ({tattoos}) {
+export default function () {
     return (
         <div className="grid-container">
             <Query query={LAUNCHES_QUERY}>
